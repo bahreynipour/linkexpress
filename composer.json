@@ -1,0 +1,12 @@
+{
+  "require": {
+    "2amigos/qrcode-library": "~1.1"
+  },
+
+  "autoload": {
+    "psr-4": {
+      "LinkExpress\\": "app/"
+    }
+  },
+  "minimum-stability": "dev"
+}

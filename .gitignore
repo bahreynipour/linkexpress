@@ -1,0 +1,14 @@
+build
+
+# Packages
+assets/admin/node_modules
+assets/admin/package-lock.json
+composer.lock
+
+# IDE folders
+.vscode
+.idea
+
+# Others
+.env
+.DS_Store

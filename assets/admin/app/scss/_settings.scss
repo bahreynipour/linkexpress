@@ -1,0 +1,136 @@
+body.toplevel_page_link-express-settings {
+  background: #FFF !important;
+}
+
+.link-express-head {
+  overflow: hidden;
+  max-height: 300px;
+  position: relative;
+  padding: 10px 20px;
+  margin: 10px 2px 0 20px;
+  border-radius: 15px;
+
+
+  .div-txt-top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    .txt-white {
+      color: #fff;
+    }
+
+    h1 {
+      color: #000;
+      font-size: 20px;
+      font-weight: 700;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .div-hl-mini {
+      margin-left: 20px;
+    }
+
+    h2.txt-hl-mini {
+      font-size: 11px;
+      letter-spacing: 5px !important;
+      color: rgba(255, 255, 255, 0.3) !important;
+      white-space: nowrap;
+    }
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+}
+
+.link_express-settings-wrap .notice.notice-error {
+  //display: none;
+}
+
+
+p.submit {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.link_express-tab-group {
+  display: flex;
+  background: #2b3030;
+  border-radius: 15px;
+  overflow: hidden;
+  min-height: 500px;
+  padding: 15px 0 15px 15px;
+  border: 1px solid #f48b41;
+
+  ul.link_express-tab {
+    flex-basis: 300px;
+    margin: 0;
+    padding: 20px 0;
+
+    li {
+      a {
+        color: #afafaf;
+        font-size: 15px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        padding: 15px 30px;
+        gap: 10px;
+        position: relative;
+
+        svg {
+          width: 18px;
+          height: 18px;
+        }
+
+        &.active {
+          //background: rgba(0,0,0,0.2);
+          color: #FFF;
+
+          &:before {
+            content: '';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 7px;
+            height: 7px;
+            background-color: #f48b41;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  .link_express-tab-content {
+    width: 108%;
+    background: #f0f8ff;
+    padding: 0 20px;
+    border-radius: 10px;
+
+  }
+}
+
+.toplevel_page_link-express-settings div#wpfooter {
+  display: none;
+}
+
+.link_express-tab-content {
+  .description {
+    float: right;
+    width: 100%;
+  }
+}
+
+.nice-select .nice-select-search {
+  margin: 0;
+}

@@ -1,0 +1,48 @@
+.tracking-wrapper {
+    .traces {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 20px;
+        .trace-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4px 10px;
+            border-radius: 5px;
+            background-color: #FFF;
+            font-size: 11px;
+            color: #a3a3a3;
+        }
+    }
+    .tracking-data {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 10px;
+
+        .tracking-item {
+            grid-column: span 4 / span 4;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background-color: #dff0ff;
+            border-radius: 10px;
+            padding: 10px;
+            transition: all 0.1s ease-in;
+            border: 2px solid #dff0ff;
+            &:hover {
+                background-color: #c7e5ff;
+                border-color: #aed9ff;
+            }
+
+            .title {
+                color: #777;
+                font-size: 12px;
+            }
+            .content {
+                font-size: 12px;
+            }
+        }
+    }
+}
