@@ -132,7 +132,8 @@ abstract class Api implements ApiInterface
 
         return [
 			'status' => $response['code'] === 200 ? 'success' : 'error',
-	        'message' => $message
+	        'message' => $message,
+	        'body' => $body
         ];
     }
 

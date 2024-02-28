@@ -361,6 +361,8 @@ class Settings
                 if (!empty($result['status']) and $result['status'] == 'success') {
                     $output['api_username'] = $input['Username'];
                     $output['api_password'] = $input['Password'];
+                    $output['guid'] = $result['body']['guid'];
+                    $output['accountGuid'] = $result['body']['accountGuid'];
                     unset($output['Username']);
                     unset($output['Password']);
                     unset($output['CompanyName']);
