@@ -60,7 +60,7 @@ abstract class Api implements ApiInterface
             $optionalParamsValues = array_intersect_key($data, array_flip($this->optionalParams));
         }
 
-        $data = wp_parse_args($optionalParamsValues ?? [], $this->requiredParamValues);
+        $data = wp_parse_args($optionalParamsValues ?? [], $this->requiredParamValues ?? []);
 
         $this->args = $data;
     }

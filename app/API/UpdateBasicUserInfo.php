@@ -4,6 +4,22 @@ class UpdateBasicUserInfo extends Api
 {
     protected string $endpoint = 'account/UpdateBasicUserInfo';
 
+	protected ?array $requiredParams = [
+		'FirstName',
+		'LastName',
+		'CellPhone',
+		'Email',
+		'Address',
+		'AddressFullName',
+		'AddressCellPhone'
+	];
+
+	protected ?array $optionalParams = [
+		'AddressCity',
+		'CompanyRegistrationNumber',
+		'CompanyEconomicCode'
+	];
+
     public function setResponseMessages(): void
     {
         $this->responseMessages = [

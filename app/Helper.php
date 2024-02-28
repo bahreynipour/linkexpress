@@ -6,7 +6,7 @@ class Helper
 {
     public static function isApiEntered(): bool
     {
-        return (!getOption('api_username') && !getOption('api_password'));
+        return getOption('api_username') && getOption('api_password');
     }
 
     public static function pwIntegrate($province, $check_pws = false)

@@ -60,8 +60,8 @@ class Settings
                 'type' => 'text',
                 'required' => true
             ],
-            'email' => [
-                'id' => 'email',
+            'Email' => [
+                'id' => 'Email',
                 'name' => 'ایمیل',
                 'type' => 'text',
                 'required' => true,
@@ -150,6 +150,11 @@ class Settings
             'CellPhone' => [
                 'id' => 'CellPhone',
                 'name' => 'شماره همراه',
+                'type' => 'text',
+            ],
+            'Email' => [
+                'id' => 'Email',
+                'name' => 'ایمیل',
                 'type' => 'text',
             ],
             'Address' => [
@@ -351,7 +356,7 @@ class Settings
         }
         if (!$has_error) {
             if (!Helper::isApiEntered()) {
-                $request = new Register($input);
+                $request = Register::make($input);
                 $result = $request->request();
                 if (!empty($result['status']) and $result['status'] == 'success') {
                     $output['api_username'] = $input['Username'];
@@ -365,7 +370,7 @@ class Settings
                 }
 
             } else {
-                $request = new UpdateBasicUserInfo($input);
+                $request = UpdateBasicUserInfo::make($input);
                 $result = $request->request();
                 if (!empty($result['status']) and $result['status'] == 'success') {
                     add_settings_error('link_express-notices', '', $result['message'], 'updated');
@@ -688,27 +693,6 @@ class Settings
         echo $html;
     }
 
-    public function rich_editor_callback($args)
-    {
-        global $wp_version;
-
-        if (isset($this->options[$args['id']])) {
-            $value = $this->options[$args['id']];
-        } else {
-            $value = isset($args['std']) ? $args['std'] : '';
-        }
-
-        if ($wp_version >= 3.3 && function_exists('wp_editor')) {
-            $html = wp_editor(stripslashes($value), 'link_express_settings[' . $args['id'] . ']', array('textarea_name' => 'link_express_settings[' . $args['id'] . ']'));
-        } else {
-            $html = sprintf('<textarea class="large-text" rows="10" id="linkExpress-settings[%1$s]" name="linkExpress-settings[%1$s]">' . esc_textarea(stripslashes($value)) . '</textarea>', esc_attr($args['id']));
-        }
-
-        $html .= sprintf('<p class="description"> %1$s</p>', wp_kses_post($args['desc']));
-
-        echo $html;
-    }
-
     public function upload_callback(array $args): void
     {
         if (isset($this->options[$args['id']])) {
@@ -756,7 +740,7 @@ class Settings
             <img src="<?php echo app()::getFileUrl('assets/admin/dist/img/header-bg.png'); ?>" alt="">
         </div>
         <div class="wrap link-express-notices">
-            <?php echo settings_errors('link_express-notices'); ?>
+            <?php settings_errors('link_express-notices'); ?>
         </div>
         <div class="wrap link_express-wrap link_express-settings-wrap">
 
