@@ -1,3 +1,6 @@
+@import "components/select2";
+@import "components/input";
+
 .link-group {
   display: flex;
   gap: 5px;
@@ -64,7 +67,6 @@
     }
   }
 }
-
 
 .link-btn {
   width: 100%;
