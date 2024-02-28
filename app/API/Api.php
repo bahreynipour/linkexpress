@@ -11,6 +11,8 @@ abstract class Api implements ApiInterface
     protected ?array $requiredParams;
     protected ?array $requiredParamValues;
     protected ?array $optionalParams;
+
+	protected string $method = 'post';
     private string $username;
     private string $password;
     protected string $endpoint;
@@ -112,7 +114,9 @@ abstract class Api implements ApiInterface
             'httpversion' => '1.0',
             'data_format' => 'body',
         ];
-        return $this->handleResponse( wp_remote_post( $this->requestUrl, $args ) );
+
+		$method = "wp_remote_{$this->method}";
+        return $this->handleResponse( $method($this->requestUrl, $args) );
     }
 
     public function handleResponse($response): array

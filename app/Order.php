@@ -1,14 +1,21 @@
 <?php namespace LinkExpress;
 
 use Automattic\WooCommerce\Internal\DataStores\Orders\CustomOrdersTableController;
+use LinkExpress\API\GetCreditBalance;
 use LinkExpress\Services\OrderAction;
 use WC_Order;
+use WP_Admin_Bar;
 use WP_Post;
 
 class Order
 {
 	public function __construct()
 	{
+
+		$this->apiHooks();
+
+		add_action( 'admin_bar_menu', [$this, 'adminBar'], 100 );
+
 		add_action('add_meta_boxes', [$this, 'setupLinkMetaBox']);
 
 		add_filter('manage_edit-shop_order_columns', [$this, 'addLinkOrderColumn']);
@@ -18,6 +25,48 @@ class Order
 		add_action('manage_woocommerce_page_wc-orders_custom_column', [$this, 'addLinkOrderColumnContent'], 10, 2);
 
 		new OrderAction();
+	}
+
+	protected function apiHooks(): void
+	{
+		add_filter('link_express_api_body_data', function ($data) {
+			if(empty($data['state']))
+				return $data;
+
+			$state = Helper::getStateTitle($data['state']);
+
+			if(!empty($state))
+				$data['state'] = $state;
+
+			return $data;
+		});
+	}
+
+	public function adminBar(WP_Admin_Bar $wp_admin_bar)
+	{
+		if ( !is_admin() ) {
+			return;
+		}
+
+		if(!current_user_can('manage_woocommerce')) {
+			return;
+		}
+
+		$accountGuid = getOption('accountGuid');
+
+		if(!$accountGuid) {
+			return;
+		}
+
+//		$t = GetCreditBalance::make(['accountGuid' => $accountGuid])->request();
+
+		$wp_admin_bar->add_menu(
+			array(
+				'id'     => app()->getName() . '-balance',
+				'parent' => null,
+				'title'  => sprintf('اعتبار لینک: %s', 'نامشخص'),
+			)
+		);
 	}
 
 	function addLinkOrderColumn(array $columns): array

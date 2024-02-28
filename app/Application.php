@@ -18,7 +18,6 @@ class Application
         new Label();
         new Assets();
         new Settings();
-        new Hooks();
         new DeliveryTime();
 	}
 
