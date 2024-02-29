@@ -38,7 +38,7 @@ class Nonce
 
     public function verify(null|string $nonce = null): false|int|null
     {
-        $verify = wp_verify_nonce($nonce ?? $_POST['nonce'], $this->action);
+        $verify = wp_verify_nonce($nonce ?? $_REQUEST['nonce'], $this->action);
 
         if(!$verify && $this->canSendError) {
             wp_send_json_error($this->error);
