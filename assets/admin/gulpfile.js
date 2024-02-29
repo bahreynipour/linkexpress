@@ -28,7 +28,6 @@ gulp.task('sass', function () {
 gulp.task('minifycss', gulp.series(['sass'], function () {
     return gulp.src([
         'app/css/flexboxgrid.min.css',
-        'app/css/nice-select2.css',
         'app/css/main.css',
     ])
         .pipe(concat('linkexpress.css'))
@@ -43,8 +42,8 @@ gulp.task('minifycss', gulp.series(['sass'], function () {
 gulp.task('minifyScripts', function (cb) {
     return pump([
             gulp.src([
-                'app/js/nice-select2.js',
                 'app/js/base.js',
+                'app/js/order.js',
                 'app/js/main.js',
             ]),
             concat('linkexpress.js'),

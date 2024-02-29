@@ -2,6 +2,7 @@
 
 use Automattic\WooCommerce\Internal\DataStores\Orders\CustomOrdersTableController;
 use LinkExpress\API\GetCreditBalance;
+use LinkExpress\Services\Ajax;
 use LinkExpress\Services\OrderAction;
 use WC_Order;
 use WP_Admin_Bar;
@@ -13,8 +14,9 @@ class Order
 	{
 
 		$this->apiHooks();
+		$this->labelHooks();
 
-		add_action( 'admin_bar_menu', [$this, 'adminBar'], 100 );
+		add_action('admin_bar_menu', [$this, 'adminBar'], 100);
 
 		add_action('add_meta_boxes', [$this, 'setupLinkMetaBox']);
 
@@ -30,31 +32,60 @@ class Order
 	protected function apiHooks(): void
 	{
 		add_filter('link_express_api_body_data', function ($data) {
-			if(empty($data['state']))
+			if (empty($data['state']))
 				return $data;
 
 			$state = Helper::getStateTitle($data['state']);
 
-			if(!empty($state))
+			if (!empty($state))
 				$data['state'] = $state;
 
 			return $data;
 		});
 	}
 
+	protected function labelHooks()
+	{
+		add_action('current_screen', function () {
+			if (!current_user_can('manage_woocommerce')) {
+				return;
+			}
+
+			add_filter('bulk_actions-edit-shop_order', [$this, 'bulkActions']);
+			add_filter('bulk_actions-woocommerce_page_wc-orders', [$this, 'bulkActions']);
+		});
+
+		Ajax::make('generateLinkLabel')->do(function (Ajax $ajax) {
+			$ajax->errorIf(
+				empty($_REQUEST['order_ids']),
+				'سفارشی یافت نشد'
+			)->view('admin.order.label.print', [
+				'ids' => $_REQUEST['order_ids']
+			]);
+		});
+
+	}
+
+	public function bulkActions($actions)
+	{
+		$actions['link-bulk-print-labels'] = 'پرینت برچسب لینک';
+
+		return $actions;
+	}
+
 	public function adminBar(WP_Admin_Bar $wp_admin_bar)
 	{
-		if ( !is_admin() ) {
+		if (!is_admin()) {
 			return;
 		}
 
-		if(!current_user_can('manage_woocommerce')) {
+		if (!current_user_can('manage_woocommerce')) {
 			return;
 		}
 
 		$accountGuid = getOption('accountGuid');
 
-		if(!$accountGuid) {
+		if (!$accountGuid) {
 			return;
 		}
 
@@ -62,9 +93,9 @@ class Order
 
 		$wp_admin_bar->add_menu(
 			array(
-				'id'     => app()->getName() . '-balance',
+				'id' => app()->getName() . '-balance',
 				'parent' => null,
-				'title'  => sprintf('اعتبار لینک: %s', 'نامشخص'),
+				'title' => sprintf('اعتبار لینک: %s', 'نامشخص'),
 			)
 		);
 	}
@@ -215,7 +246,7 @@ class Order
 					'label' => $order->getStateName() ?? 'عملیات',
 					'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>'
 				],
-					],
+				],
 				['components.group', ['class' => 'dropdown-items', 'components' => $operations]],
 			]
 		]);
