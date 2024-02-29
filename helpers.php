@@ -582,3 +582,8 @@ function getOrderByTrackingCode($trackingCode)
 		'meta_type' => 'NUMERIC',
 	])[0] ?? null;
 }
+
+function getLinkExpressCompanyAddress(): string
+{
+    return 'لینک اسکپرس آدرس : تهران فرخی یزدی آجرپز پلاک ۱۱';
+}
