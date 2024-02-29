@@ -4,6 +4,7 @@ namespace LinkExpress\Services;
 
 use Closure;
 use Exception;
+use function LinkExpress\view;
 
 class Ajax
 {
@@ -58,6 +59,12 @@ class Ajax
 	    }
 
     }
+
+	public function view($file, $data = [])
+	{
+		echo view($file, $data);
+		die();
+	}
 
     public function jsonResponse($message, ?int $statusCode = null, int $options = 0, bool $withCatch = false): void
     {
