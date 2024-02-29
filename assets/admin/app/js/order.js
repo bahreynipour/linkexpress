@@ -23,7 +23,7 @@ jQuery( function( $ ) {
             return
         }
 
-        const url = linkHelper.settings.ajax.url + '?action=generateLinkLabel&bulk&nonce=' + linkHelper.settings.ajax.nonce
+        const url = linkHelper.settings.ajax.url + '?action=generateLinkLabel&nonce=' + linkHelper.settings.ajax.nonce
         const orderIds = checked.join(',')
         window.open(
             url + '&order_ids=' + orderIds,

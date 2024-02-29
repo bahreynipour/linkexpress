@@ -5,6 +5,7 @@ namespace LinkExpress\Objects;
 use LinkExpress\Actions\TraceOrders;
 use LinkExpress\Actions\TrackOrder;
 use LinkExpress\Helper;
+use LinkExpress\Services\Nonce;
 use WC_Order;
 use function LinkExpress\getRialAmount;
 use function LinkExpress\getShifts;
@@ -292,5 +293,14 @@ class Order
 		$address[] = $this->getAddress();
 
 		return implode($separator, $address);
+	}
+
+	public function getPrintLabelUrl(): string
+	{
+		return add_query_arg([
+			'nonce' => Nonce::make('linkExpress')->create(),
+			'action' => 'generateLinkLabel',
+			'order_ids' => $this->order->get_id()
+		], admin_url('admin-ajax.php'));
 	}
 }
