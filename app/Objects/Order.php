@@ -175,8 +175,8 @@ class Order
 			'،'
 			, array_filter(
 				[
-					$this->order->has_shipping_address() || $this->order->has_billing_address(),
-					$this->order->has_shipping_address() || $this->order->has_billing_address()
+					$this->order->get_shipping_address_1() ?: $this->order->get_billing_address_1(),
+					$this->order->get_shipping_address_2() ?: $this->order->get_billing_address_2()
 				]
 			)
 		);
