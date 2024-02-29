@@ -3,7 +3,7 @@
  * Plugin Name: LinkExpress Shipping
  * Plugin URI: https://linkexpress.ir
  * Description: Add LinkExpress features to your WooCommerce Store
- * Version: 2.0.0
+ * Version: 2.1.0
  * Author: Reza Bahreynipour
  * Author URI: https://yuzwp.com
  * Text Domain: linkExpress
