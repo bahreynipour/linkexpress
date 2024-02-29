@@ -175,8 +175,8 @@ class Order
 			'،'
 			, array_filter(
 				[
-					$this->order->get_shipping_address_1() ?: $this->order->get_billing_address_1(),
-					$this->order->get_shipping_address_2() ?: $this->order->get_billing_address_2()
+					$this->order->has_shipping_address() || $this->order->has_billing_address(),
+					$this->order->has_shipping_address() || $this->order->has_billing_address()
 				]
 			)
 		);
@@ -188,8 +188,8 @@ class Order
 			' ',
 			array_filter(
 				[
-					$this->order->get_shipping_address_1() ? $this->order->get_shipping_first_name() : $this->order->get_billing_first_name(),
-					$this->order->get_shipping_address_1() ? $this->order->get_shipping_last_name() : $this->order->get_billing_last_name()
+					$this->order->has_shipping_address() ? $this->order->get_shipping_first_name() : $this->order->get_billing_first_name(),
+					$this->order->has_shipping_address() ? $this->order->get_shipping_last_name() : $this->order->get_billing_last_name()
 				]
 			)
 		);
@@ -282,5 +282,15 @@ class Order
 	public function getShift()
 	{
 		return getShifts(false, false)[$this->getShiftId()] ?? null;
+	}
+
+	public function getFormattedReceiverAddress(string $separator = ' - '): string
+	{
+		$address[] = $this->getCustomerName();
+		$address[] = $this->getCellPhone() ?? null;
+		$address[] = 'آدرس';
+		$address[] = $this->getAddress();
+
+		return implode($separator, $address);
 	}
 }
