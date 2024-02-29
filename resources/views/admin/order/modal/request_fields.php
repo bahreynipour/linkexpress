@@ -23,16 +23,13 @@ $defaults = $defaults ?? apply_filters(
 			'fullName' => $order->getCustomerName(),
 			'address' => $order->getAddress(),
 			'description' => $order->get_customer_note() ?: '',
-			'cellPhone' => $order->get_shipping_phone() ?: $order->get_billing_phone(),
-			'postalCode' => $order->get_shipping_postcode() ?: $order->get_billing_postcode(),
-			'amount' => $order->get_payment_method() === 'cod' ? getRialAmount($order->get_total()) : 0,
+			'cellPhone' => $order->getCellPhone(),
+			'postalCode' => $order->getPostalCode(),
+			'amount' => $order->getAmount(),
 			'parcelValue' => getOption('parcelValue') ? getRialAmount($order->get_total()) : null,
 			'generateBarcode' => getOption('generateBarcode') ? 1 : null,
-			'city' => $order->get_shipping_city() ?: $order->get_billing_city(),
-			'state' => Helper::pwIntegrate(
-				$order->get_shipping_state() ?: $order->get_billing_state(),
-				true
-			),
+			'city' => $order->getCity(),
+			'state' => $order->getProvince(),
 		]
 	),
 	$order
