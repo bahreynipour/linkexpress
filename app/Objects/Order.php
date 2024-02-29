@@ -4,7 +4,10 @@ namespace LinkExpress\Objects;
 
 use LinkExpress\Actions\TraceOrders;
 use LinkExpress\Actions\TrackOrder;
+use LinkExpress\Helper;
 use WC_Order;
+use function LinkExpress\getRialAmount;
+use function LinkExpress\getShifts;
 use function LinkExpress\getStateName;
 
 class Order
@@ -84,7 +87,7 @@ class Order
 
 	public function getTraceData(?array $data = null): array
 	{
-		if(!$data) {
+		if (!$data) {
 			$data = $this->order->get_meta(self::$traceMetaKey);
 			$data = (empty($data) || !is_array($data))
 				? []
@@ -110,7 +113,7 @@ class Order
 	public function findLastChange(?array $traces = null)
 	{
 		$traces = $this->getTraceData($traces);
-		if(empty($traces))
+		if (empty($traces))
 			return null;
 
 		return $traces[array_key_last($traces)];
@@ -133,7 +136,7 @@ class Order
 
 		$this->order->save();
 
-		if($stateId !== $oldStateId) {
+		if ($stateId !== $oldStateId) {
 			TraceOrders::run([$this->getTrackingCode()]);
 		}
 
@@ -150,7 +153,7 @@ class Order
 		);
 
 		$oldStateId = $this->getStateId();
-		$stateId = intval($this->findLastChange( $data )['state']);;
+		$stateId = intval($this->findLastChange($data)['state']);;
 
 		$this->order->update_meta_data(
 			self::$stateMetaKey,
@@ -159,7 +162,7 @@ class Order
 
 		$this->order->save();
 
-		if($stateId !== $oldStateId) {
+		if ($stateId !== $oldStateId) {
 			TrackOrder::run($this);
 		}
 
@@ -206,12 +209,18 @@ class Order
 		return $this;
 	}
 
-	public function getOrderLinkData()
+	public function getOrderLinkData(?string $key = null)
 	{
-		return $this->order->get_meta(self::$submittedDataMetaKey);
+		$data = $this->order->get_meta(self::$submittedDataMetaKey);
+
+		if ($key) {
+			return $data[$key] ?? null;
+		}
+
+		return $data;
 	}
 
-	public function updateBarcodeData(?string $barcodeData)
+	public function updateBarcodeData(?string $barcodeData): static
 	{
 		$this->order->update_meta_data(self::$barcodeMetaKey, $barcodeData);
 		$this->order->save();
@@ -219,8 +228,59 @@ class Order
 		return $this;
 	}
 
+	public function getBarcodeData(): string|null
+	{
+		return $this->order->get_meta(self::$barcodeMetaKey) ?: null;
+	}
+
 	public function getStateName(?int $state = null): ?string
 	{
 		return getStateName($state ?? $this->getStateId());
+	}
+
+	public function getCellPhone(): ?string
+	{
+		return $this->order->get_shipping_phone() ?: $this->order->get_billing_phone();
+	}
+
+	public function getPostalCode(): ?string
+	{
+		return $this->order->get_shipping_postcode() ?: $this->order->get_billing_postcode();
+	}
+
+	public function getAmount(): float|int
+	{
+		return $this->order->get_payment_method() === 'cod' ? getRialAmount($this->order->get_total()) : 0;
+	}
+
+	public function getCity(): ?string
+	{
+		return $this->order->get_shipping_city() ?: $this->order->get_billing_city();
+	}
+
+	public function getProvince(): ?string
+	{
+		return Helper::pwIntegrate(
+			$this->order->get_shipping_state() ?: $this->order->get_billing_state(),
+			true
+		);
+	}
+
+	public function getSendDate(): bool|string|null
+	{
+		$date = $this->getOrderLinkData('sendDate');
+		return $date
+			? (wp_date('Y/m/d', strtotime($date)) ?: null)
+			: null;
+	}
+
+	public function getShiftId()
+	{
+		return $this->getOrderLinkData('shift');
+	}
+
+	public function getShift()
+	{
+		return getShifts(false, false)[$this->getShiftId()] ?? null;
 	}
 }
