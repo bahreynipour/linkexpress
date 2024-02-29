@@ -270,17 +270,20 @@ function linkCities(): array
 }
 
 
-function getShifts()
+function getShifts(bool $withZone = true, bool $withPeriod = true): array
 {
-	return [
-		'tehran' => [
-			1 => 'صبح (۸ تا ۱۴)',
-			2 => 'عصر (۱۴ تا ۲۰)',
-		],
-		'other' => [
-			3 => 'صبح تا عصر (۸ تا ۲۰)'
-		]
-	];
+    $tehran = [
+	    1 => sprintf('صبح%s', $withPeriod ? '(۸ تا ۱۴)' : ''),
+	    2 => sprintf('عصر%s', $withPeriod ? '(۱۴ تا ۲۰)' : ''),
+    ];
+
+    $other = [
+	    3 => sprintf('صبح تا عصر%s', $withPeriod ? '(۸ تا ۲۰)' : ''),
+    ];
+
+    return !$withZone
+        ? $tehran + $other
+        : ['tehran' => $tehran, 'other' => $other];
 }
 
 
