@@ -15,7 +15,6 @@ class Application
 
 	public function __construct() {
         new Order();
-        new Label();
         new Assets();
         new Settings();
         new DeliveryTime();
