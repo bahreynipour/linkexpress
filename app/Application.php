@@ -19,23 +19,4 @@ class Application
         new Settings();
         new DeliveryTime();
 	}
-
-	public function plugin_url( $path = null ) {
-		return untrailingslashit( plugins_url( is_null( $path ) ? '/' : $path, LinkExpress_File ) );
-	}
-
-    public function plugin_dir( $path = null ) {
-        return untrailingslashit( LinkExpress_DIR . '/' . $path );
-    }
-
-    public function option($option = 'all') {
-        if($option == 'all') return Options::get_instance()->options;
-        return Options::get_instance()->get_option_value($option);
-    }
-
-    public static function version(): string
-    {
-        $plugin = get_plugin_data(LinkExpress_File);
-        return $plugin['Version'];
-    }
 }
