@@ -79,7 +79,7 @@ div#le-modal {
             position: relative;
             width: 7px;
             height: 7px;
-            background-color: #f48b41;
+            background-color: #0abaff;
             border-radius: 50%;
             display: inline-block;
           }
@@ -152,7 +152,6 @@ div#le-modal {
     transform: translate(-50%, -50%);
     width: 700px;
     z-index: 999999;
-    background: #2b3030;
     display: flex;
     flex-direction: column;
     opacity: 0;
@@ -160,7 +159,9 @@ div#le-modal {
     border-radius: 15px;
     overflow: hidden;
     padding: 15px;
-    border: 1px solid #f48b41;
+    background: rgb(38,99,189);
+    background: linear-gradient(45deg, rgba(38,99,189,1) 6%, rgba(43,48,48,1) 100%);
+    border: 2px solid #2b3030;
 
     .form-logo {
       display: flex;
