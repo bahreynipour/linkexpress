@@ -202,7 +202,7 @@ class Settings
                 $this,
                 'render_settings'
             ],
-            app()::getFileUrl('resources/images/logo.svg')
+            app()::getFileUrl('resources/images/dashicon.svg')
         );
     }
 
