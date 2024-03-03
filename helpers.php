@@ -214,7 +214,8 @@ function modalOptionalFields(): array
 			'type' => 'textarea',
 			'label' => 'توضیحات',
 			'required' => false,
-			'class' => ['col-md-12']
+			'class' => ['col-md-12'],
+			'default' => fn(WC_Order $order) => $order->get_customer_note()
 		],
 		[
 			'id' => 'senderAddress',
