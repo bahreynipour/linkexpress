@@ -210,7 +210,7 @@ function modalOptionalFields(): array
 			'options' => link_express_barcodes()
 		],
 		[
-			'id' => 'describtion',
+			'id' => 'description',
 			'type' => 'textarea',
 			'label' => 'توضیحات',
 			'required' => false,
