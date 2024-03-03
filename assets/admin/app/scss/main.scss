@@ -1,7 +1,10 @@
-//@import "grid";
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+
 @import "tracking";
 @import "fonts";
 @import "components";
+@import "cancel";
+@import "settings";
 
 div#le-modal {
   position: fixed;
@@ -309,7 +312,6 @@ div#le-modal {
 
 }
 
-
 div#le-notice {
   position: fixed;
   opacity: 0;
@@ -389,8 +391,6 @@ div#le-notice {
 
 .linkexpress-actions .buttons {
   display: flex;
-  /* flex: 50%; */
-  display: flex;
   -webkit-box-flex: 0;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
@@ -425,8 +425,6 @@ button#linkexpress-remove {
   }
 }
 
-@import "cancel";
-@import "settings";
 
 
 

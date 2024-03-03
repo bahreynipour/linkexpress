@@ -732,14 +732,14 @@ class Settings
 
         <div class="link-express-head">
             <div class="div-txt-top w-clearfix">
-                <h1>Link express
+                <h1>لینک اکسپرس
                     <span class="txt-white">توزیع و تحویل هوشمند مرسولات</span>
                 </h1>
                 <div class="div-hl-mini">
                     <h2 class="txt-hl-mini">Intelligent dispatch &amp; deliver</h2>
                 </div>
             </div>
-            <img src="<?php echo app()::getFileUrl('assets/admin/dist/img/header-bg.png'); ?>" alt="">
+            <img src="<?php echo app()::getFileUrl('resources/images/logo.svg'); ?>" alt="">
         </div>
         <div class="wrap link-express-notices">
             <?php settings_errors('link_express-notices'); ?>

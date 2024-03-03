@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap");
 .tracking-wrapper .traces {
   display: flex;
   justify-content: center;
@@ -45,60 +46,32 @@
 }
 
 @font-face {
-  font-family: IRANSansX;
+  font-family: "Vazirmatn";
   font-style: normal;
-  font-weight: 100;
-  src: url("../fonts/IRANSans/Woff/IRANSansXFaNum-Thin.woff") format("woff"), url("../fonts/IRANSans/Woff2/IRANSansXFaNum-Thin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vazirmatn/v13/Dxxo8j6PP2D_kU2muijlGMWWIGroe7ll.woff2) format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0898-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EFD-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
 }
+/* latin-ext */
 @font-face {
-  font-family: IRANSansX;
+  font-family: "Vazirmatn";
   font-style: normal;
-  font-weight: 200;
-  src: url("../fonts/IRANSans/Woff/IRANSansXFaNum-UltraLight.woff") format("woff"), url("../fonts/IRANSans/Woff2/IRANSansXFaNum-UltraLight.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vazirmatn/v13/Dxxo8j6PP2D_kU2muijlE8WWIGroe7ll.woff2) format("woff2");
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
+/* latin */
 @font-face {
-  font-family: IRANSansX;
+  font-family: "Vazirmatn";
   font-style: normal;
-  font-weight: 300;
-  src: url("../fonts/IRANSans/Woff/IRANSansXFaNum-Light.woff") format("woff"), url("../fonts/IRANSans/Woff2/IRANSansXFaNum-Light.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vazirmatn/v13/Dxxo8j6PP2D_kU2muijlHcWWIGroew.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-@font-face {
-  font-family: IRANSansX;
-  font-style: normal;
-  font-weight: 500;
-  src: url("../fonts/IRANSans/Woff/IRANSansXFaNum-Medium.woff") format("woff"), url("../fonts/IRANSans/Woff2/IRANSansXFaNum-Medium.woff2") format("woff2");
-}
-@font-face {
-  font-family: IRANSansX;
-  font-style: normal;
-  font-weight: 600;
-  src: url("../fonts/IRANSans/Woff/IRANSansXFaNum-DemiBold.woff") format("woff"), url("../fonts/IRANSans/Woff2/IRANSansXFaNum-DemiBold.woff2") format("woff2");
-}
-@font-face {
-  font-family: IRANSansX;
-  font-style: normal;
-  font-weight: 800;
-  src: url("../fonts/IRANSans/Woff/IRANSansXFaNum-ExtraBold.woff") format("woff"), url("../fonts/IRANSans/Woff2/IRANSansXFaNum-ExtraBold.woff2") format("woff2");
-}
-@font-face {
-  font-family: IRANSansX;
-  font-style: normal;
-  font-weight: 900;
-  src: url("../fonts/IRANSans/Woff/IRANSansXFaNum-Black.woff") format("woff"), url("../fonts/IRANSans/Woff2/IRANSansXFaNum-Black.woff2") format("woff2");
-}
-@font-face {
-  font-family: IRANSansX;
-  font-style: normal;
-  font-weight: Bold;
-  src: url("../fonts/IRANSans/Woff/IRANSansXFaNum-Bold.woff") format("woff"), url("../fonts/IRANSans/Woff2/IRANSansXFaNum-Bold.woff2") format("woff2");
-}
-@font-face {
-  font-family: IRANSansX;
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/IRANSans/Woff/IRANSansXFaNum-Regular.woff") format("woff"), url("../fonts/IRANSans/Woff2/IRANSansXFaNum-Regular.woff2") format("woff2");
-}
-.link-express-head span, .link-express-head div, .link-express-head a, .link-express-head ul, .link-express-head li, .link-express-head input, .link-express-head button,
+.link-express-head span, .link-express-head div, .link-express-head a, .link-express-head ul, .link-express-head li, .link-express-head input, .link-express-head button, .link-express-head h1, .link-express-head h2, .link-express-head h3, .link-express-head h4, .link-express-head h5, .link-express-head h6,
 .link_express-wrap span,
 .link_express-wrap div,
 .link_express-wrap a,
@@ -106,6 +79,12 @@
 .link_express-wrap li,
 .link_express-wrap input,
 .link_express-wrap button,
+.link_express-wrap h1,
+.link_express-wrap h2,
+.link_express-wrap h3,
+.link_express-wrap h4,
+.link_express-wrap h5,
+.link_express-wrap h6,
 #le-modal span,
 #le-modal div,
 #le-modal a,
@@ -113,6 +92,12 @@
 #le-modal li,
 #le-modal input,
 #le-modal button,
+#le-modal h1,
+#le-modal h2,
+#le-modal h3,
+#le-modal h4,
+#le-modal h5,
+#le-modal h6,
 #le-notice span,
 #le-notice div,
 #le-notice a,
@@ -120,6 +105,12 @@
 #le-notice li,
 #le-notice input,
 #le-notice button,
+#le-notice h1,
+#le-notice h2,
+#le-notice h3,
+#le-notice h4,
+#le-notice h5,
+#le-notice h6,
 .column-link_express span,
 .column-link_express div,
 .column-link_express a,
@@ -127,48 +118,29 @@
 .column-link_express li,
 .column-link_express input,
 .column-link_express button,
-.linkexpress-actions span,
-.linkexpress-actions div,
-.linkexpress-actions a,
-.linkexpress-actions ul,
-.linkexpress-actions li,
-.linkexpress-actions input,
-.linkexpress-actions button {
-  font-family: "IRANSansX", sans-serif !important;
-  letter-spacing: 0 !important;
-}
-.link-express-head h1, .link-express-head h2, .link-express-head h3, .link-express-head h4, .link-express-head h5, .link-express-head h6,
-.link_express-wrap h1,
-.link_express-wrap h2,
-.link_express-wrap h3,
-.link_express-wrap h4,
-.link_express-wrap h5,
-.link_express-wrap h6,
-#le-modal h1,
-#le-modal h2,
-#le-modal h3,
-#le-modal h4,
-#le-modal h5,
-#le-modal h6,
-#le-notice h1,
-#le-notice h2,
-#le-notice h3,
-#le-notice h4,
-#le-notice h5,
-#le-notice h6,
 .column-link_express h1,
 .column-link_express h2,
 .column-link_express h3,
 .column-link_express h4,
 .column-link_express h5,
 .column-link_express h6,
+.linkexpress-actions span,
+.linkexpress-actions div,
+.linkexpress-actions a,
+.linkexpress-actions ul,
+.linkexpress-actions li,
+.linkexpress-actions input,
+.linkexpress-actions button,
 .linkexpress-actions h1,
 .linkexpress-actions h2,
 .linkexpress-actions h3,
 .linkexpress-actions h4,
 .linkexpress-actions h5,
 .linkexpress-actions h6 {
-  font-family: "IRANSansX", sans-serif !important;
+  font-family: "Vazirmatn", sans-serif !important;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
 }
 
 .wc-wp-version-gte-53 .select2-container .select2-selection--multiple,
@@ -317,6 +289,142 @@
 .link-btn.action-ready {
   color: #7cb342;
   background-color: #dcedc8;
+}
+
+.cancel-form .buttons {
+  display: flex;
+  justify-content: end;
+}
+
+.cancel-form .buttons button {
+  margin-right: 10px;
+}
+
+body.toplevel_page_link-express-settings {
+  background: #FFF !important;
+}
+
+.link-express-head {
+  overflow: hidden;
+  max-height: 300px;
+  position: relative;
+  padding: 25px;
+  margin: 10px 2px 0 20px;
+  border-radius: 15px;
+  background: #2663bd;
+  background: linear-gradient(270deg, #2b3030 6%, #2663bd 100%);
+  border: 2px solid #2b3030;
+}
+.link-express-head .div-txt-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.link-express-head .div-txt-top .txt-white {
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+.link-express-head .div-txt-top h1 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.link-express-head .div-txt-top h2.txt-hl-mini {
+  font-size: 10px;
+  letter-spacing: 5px !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  left: 25px;
+  bottom: 10px;
+}
+.link-express-head img {
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  width: 150px;
+  object-fit: cover;
+  z-index: 1;
+  filter: grayscale(1);
+  opacity: 0.4;
+  transform: translateY(-50%);
+}
+
+p.submit {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.link_express-tab-group {
+  display: flex;
+  background: #2b3030;
+  border-radius: 15px;
+  overflow: hidden;
+  min-height: 500px;
+  padding: 15px 0 15px 15px;
+  border: 1px solid #f48b41;
+  background: rgb(38, 99, 189);
+  background: linear-gradient(135deg, rgb(38, 99, 189) 6%, rgb(43, 48, 48) 100%);
+  border: 2px solid #2b3030;
+}
+.link_express-tab-group ul.link_express-tab {
+  flex-basis: 300px;
+  margin: 0;
+  padding: 20px 0;
+}
+.link_express-tab-group ul.link_express-tab li a {
+  color: #afafaf;
+  font-size: 15px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 15px 30px;
+  gap: 10px;
+  position: relative;
+}
+.link_express-tab-group ul.link_express-tab li a svg {
+  width: 18px;
+  height: 18px;
+}
+.link_express-tab-group ul.link_express-tab li a.active {
+  color: #FFF;
+}
+.link_express-tab-group ul.link_express-tab li a.active:before {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 7px;
+  height: 7px;
+  background-color: #f48b41;
+  border-radius: 50%;
+}
+.link_express-tab-group .link_express-tab-content {
+  width: 108%;
+  background: #f0f8ff;
+  padding: 0 20px;
+  border-radius: 10px;
+}
+
+.toplevel_page_link-express-settings div#wpfooter {
+  display: none;
+}
+
+.link_express-tab-content .description {
+  float: right;
+  width: 100%;
+}
+
+.nice-select .nice-select-search {
+  margin: 0;
 }
 
 div#le-modal {
@@ -649,8 +757,6 @@ div#le-notice button svg {
 
 .linkexpress-actions .buttons {
   display: flex;
-  /* flex: 50%; */
-  display: flex;
   -webkit-box-flex: 0;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
@@ -682,129 +788,6 @@ button#linkexpress-remove {
 }
 .field-description svg {
   width: 15px;
-}
-
-.cancel-form .buttons {
-  display: flex;
-  justify-content: end;
-}
-
-.cancel-form .buttons button {
-  margin-right: 10px;
-}
-
-body.toplevel_page_link-express-settings {
-  background: #FFF !important;
-}
-
-.link-express-head {
-  overflow: hidden;
-  max-height: 300px;
-  position: relative;
-  padding: 10px 20px;
-  margin: 10px 2px 0 20px;
-  border-radius: 15px;
-}
-.link-express-head .div-txt-top {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-}
-.link-express-head .div-txt-top .txt-white {
-  color: #fff;
-}
-.link-express-head .div-txt-top h1 {
-  color: #000;
-  font-size: 20px;
-  font-weight: 700;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.link-express-head .div-txt-top .div-hl-mini {
-  margin-left: 20px;
-}
-.link-express-head .div-txt-top h2.txt-hl-mini {
-  font-size: 11px;
-  letter-spacing: 5px !important;
-  color: rgba(255, 255, 255, 0.3) !important;
-  white-space: nowrap;
-}
-.link-express-head img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
-
-p.submit {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-.link_express-tab-group {
-  display: flex;
-  background: #2b3030;
-  border-radius: 15px;
-  overflow: hidden;
-  min-height: 500px;
-  padding: 15px 0 15px 15px;
-  border: 1px solid #f48b41;
-}
-.link_express-tab-group ul.link_express-tab {
-  flex-basis: 300px;
-  margin: 0;
-  padding: 20px 0;
-}
-.link_express-tab-group ul.link_express-tab li a {
-  color: #afafaf;
-  font-size: 15px;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  padding: 15px 30px;
-  gap: 10px;
-  position: relative;
-}
-.link_express-tab-group ul.link_express-tab li a svg {
-  width: 18px;
-  height: 18px;
-}
-.link_express-tab-group ul.link_express-tab li a.active {
-  color: #FFF;
-}
-.link_express-tab-group ul.link_express-tab li a.active:before {
-  content: "";
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 7px;
-  height: 7px;
-  background-color: #f48b41;
-  border-radius: 50%;
-}
-.link_express-tab-group .link_express-tab-content {
-  width: 108%;
-  background: #f0f8ff;
-  padding: 0 20px;
-  border-radius: 10px;
-}
-
-.toplevel_page_link-express-settings div#wpfooter {
-  display: none;
-}
-
-.link_express-tab-content .description {
-  float: right;
-  width: 100%;
-}
-
-.nice-select .nice-select-search {
-  margin: 0;
 }
 
 .link-express-actions-summary-list-data {
