@@ -202,7 +202,7 @@ class Settings
                 $this,
                 'render_settings'
             ],
-            app()::getFileUrl('assets/admin/dist/img/logo-link-express-20x20.jpg')
+            app()::getFileUrl('resources/images/logo.svg')
         );
     }
 
