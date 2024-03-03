@@ -2,6 +2,7 @@ build
 
 # Packages
 vendor
+assets/admin/dist
 assets/admin/node_modules
 assets/admin/package-lock.json
 composer.lock
