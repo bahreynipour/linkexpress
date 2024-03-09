@@ -19,7 +19,7 @@ class TrackOrder implements InteractsWithOrder
 	 * @throws NotFoundTrackingCodeException
 	 * @throws OrderTrackException
 	 */
-	public function handle(Order $order, bool $save = true)
+	public function handle(Order $order, bool $save = true, bool $withTrace = true)
 	{
 		if (!$trackingCode = $order->getTrackingCode()) {
 			throw new NotFoundTrackingCodeException();
@@ -34,7 +34,7 @@ class TrackOrder implements InteractsWithOrder
 
 		return $save
 			? $order
-				->updateTrackingData($request['message'])
+				->updateTrackingData($request['message'], $withTrace)
 				->getTrackingData()
 			: $request['message'];
 	}

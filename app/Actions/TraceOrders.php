@@ -4,13 +4,9 @@ namespace LinkExpress\Actions;
 
 use LinkExpress\API\TraceOrders as ApiRequest;
 use LinkExpress\Concerns\Action;
-use LinkExpress\Contracts\InteractsWithOrder;
-use LinkExpress\Exceptions\NotFoundOrdersForTraceException;
 use LinkExpress\Exceptions\NotFoundTrackingCodeException;
 use LinkExpress\Exceptions\OrderTraceException;
-use LinkExpress\Exceptions\OrderTrackException;
 use LinkExpress\Objects\Order;
-use stdClass;
 use WC_Order;
 use function LinkExpress\getOrderByTrackingCode;
 
@@ -22,7 +18,7 @@ class TraceOrders
 	 * @throws NotFoundTrackingCodeException
 	 * @throws OrderTraceException
 	 */
-    public function handle(?array $orderTrackingCodes = null, bool $save = true)
+    public function handle(?array $orderTrackingCodes = null, bool $save = true, bool $withTrack = true)
     {
 		$orders = $orderTrackingCodes ?? $this->getOrders();
 		if(!$orders) {
@@ -42,13 +38,17 @@ class TraceOrders
 			return $traces;
 		}
 
+		if(!$withTrack) {
+			return $traces;
+		}
+
 		foreach ($traces as $traceItem) {
 			if(!$order = getOrderByTrackingCode($traceItem['tracking_code'])) {
 				continue;
 			}
 
 			Order::make($order)
-				->updateTraceData($traceItem['trace']);
+				->updateTraceData($traceItem['trace'], !$withTrack);
 		}
 
 		return $traces;

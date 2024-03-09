@@ -23,7 +23,7 @@ $isTehran = ($order->get_shipping_city() ?: $order->get_billing_city()) === 'ØªÙ
 
 ?>
 
-<form action="" class="form-submit__ready send">
+<form action="" class="form-submit__ready resend">
     <div class="row form-content">
 		<?php foreach ($fields as $key => $field): ?>
             <div class="form-field

@@ -120,7 +120,7 @@ class Order
 		return $traces[array_key_last($traces)];
 	}
 
-	public function updateTrackingData(array $data): static
+	public function updateTrackingData(array $data, bool $withTrace = true): static
 	{
 		$this->order->update_meta_data(
 			self::$trackingDataMetaKey,
@@ -137,8 +137,8 @@ class Order
 
 		$this->order->save();
 
-		if ($stateId !== $oldStateId) {
-			TraceOrders::run([$this->getTrackingCode()]);
+		if ($withTrace && $stateId !== $oldStateId) {
+			TraceOrders::run([$this->getTrackingCode()], false);
 		}
 
 		$this->order->save();
@@ -146,7 +146,7 @@ class Order
 		return $this;
 	}
 
-	public function updateTraceData(array $data): static
+	public function updateTraceData(array $data, bool $withTrack = true): static
 	{
 		$this->order->update_meta_data(
 			self::$traceMetaKey,
@@ -163,8 +163,8 @@ class Order
 
 		$this->order->save();
 
-		if ($stateId !== $oldStateId) {
-			TrackOrder::run($this);
+		if ($withTrack && $stateId !== $oldStateId) {
+			TrackOrder::run($this, false);
 		}
 
 		return $this;

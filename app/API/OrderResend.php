@@ -2,7 +2,7 @@
 
 class OrderResend extends Api
 {
-    protected string $endpoint = 'order/add';
+    protected string $endpoint = 'order/resend';
     protected ?array $requiredParams = [
         'trackingCode',
         'sendDate',

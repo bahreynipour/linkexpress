@@ -17,8 +17,9 @@ class EditOrder
      */
     public function handle(Order $order)
     {
-        if (!$trackingCode = $order->getTrackingCode())
-            throw new NotFoundTrackingCodeException();
+        if (!$trackingCode = $order->getTrackingCode()) {
+	        throw new NotFoundTrackingCodeException();
+        }
 
         /**
          * TODO: remove $_POST and replace it with a class to handle and organized posted data
@@ -32,8 +33,9 @@ class EditOrder
             throw new Exception($result['message']);
 
         $trackingCode = $request->responseData['tracking_code'] ?? null;
-        if (!$trackingCode)
-            throw new Exception('خطایی در پردازش لینک اکسپرس رخ داده است. لطفا با پشتیبانی تماس بگیرید.');
+        if (!$trackingCode) {
+	        throw new Exception('خطایی در پردازش لینک اکسپرس رخ داده است. لطفا با پشتیبانی تماس بگیرید.');
+        }
 
         $order->updateOrderLinkData($trackingCode, $request->getArgs());
 

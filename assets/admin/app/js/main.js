@@ -186,7 +186,9 @@ const link = {
         const formData = new FormData(form[0])
         const action = () => {
             const val = form.find('input[name="request_edit"]').val()
-            return (val && val.length > 0) ? 'linkEdit' : 'linkAdd'
+            return (val && val.length > 0)
+                ? 'linkEdit'
+                : form.hasClass('resend') ? 'linkResend' : 'linkAdd'
         }
 
         linkHelper
@@ -237,7 +239,7 @@ const link = {
         event.preventDefault()
         const button = jQuery(event.target).closest('button')
         linkHelper
-            .request('TraceOrders', {}, button)
+            .request('traceOrders', {}, button)
             .then((data) => {
                 linkNotice.show('success', data)
             })

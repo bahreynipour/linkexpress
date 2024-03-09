@@ -2,6 +2,7 @@
 
 namespace LinkExpress\Services;
 
+use LinkExpress\Actions\ResendOrder;
 use LinkExpress\Actions\traceOrders;
 use LinkExpress\Actions\CancelOrder;
 use LinkExpress\Actions\EditOrder;
@@ -67,12 +68,21 @@ class OrderAction implements InteractsWithOrder
 				)
 				->success(
 					view(
-						'admin.order.modal.retry',
+						'admin.order.modal.resend',
 						[
 							'order' => $this->getOrder(),
 						]
 					)
 				)
+		);
+
+		/**
+		 * show track modal
+		 */
+		Ajax::make('showTrackModal')->do(
+			fn(Ajax $ajax) => $ajax->success(
+				view('admin.order.trace', ['order' => $this->getOrder(), 'history' => TrackOrder::run($this->getOrder())])
+			)
 		);
 
 		/**
@@ -143,7 +153,7 @@ class OrderAction implements InteractsWithOrder
 		);
 
 		/**
-		 * cancel an order
+		 * remove an order
 		 */
 		Ajax::make('removeOrder')->do(
 			fn(Ajax $ajax) => $ajax->jsonResponse(
@@ -153,18 +163,19 @@ class OrderAction implements InteractsWithOrder
 		);
 
 		/**
-		 * cancel an order
+		 * resend an order
 		 */
-		Ajax::make('showTrackModal')->do(
-			fn(Ajax $ajax) => $ajax->success(
-				view('admin.order.trace', ['order' => $this->getOrder(), 'history' => TrackOrder::run($this->getOrder())])
+		Ajax::make('linkResend')->do(
+			fn(Ajax $ajax) => $ajax->jsonResponse(
+				message: ResendOrder::run($this->getOrder()),
+				withCatch: true
 			)
 		);
 
 		/**
 		 * bulk track orders
 		 */
-		Ajax::make('TraceOrders')->do(
+		Ajax::make('traceOrders')->do(
 			fn(Ajax $ajax) => $ajax->jsonResponse(
 				message: traceOrders::run(),
 				withCatch: true
