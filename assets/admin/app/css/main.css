@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 4px 10px;
-  border-radius: 5px;
+  border-radius: 4px;
   background-color: #FFF;
   font-size: 11px;
   color: #a3a3a3;
@@ -28,7 +28,7 @@
   flex-direction: column;
   gap: 8px;
   background-color: #dff0ff;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 10px;
   transition: all 0.1s ease-in;
   border: 2px solid #dff0ff;
@@ -146,7 +146,7 @@
 .wc-wp-version-gte-53 .select2-container .select2-selection--multiple,
 .wc-wp-version-gte-53 .select2-container .select2-selection--single {
   padding: 6px 5px;
-  border-radius: 10px !important;
+  border-radius: 8px !important;
   border: 1px solid #e8e8e8 !important;
   height: auto;
 }
@@ -161,7 +161,7 @@
   border-top-width: 0;
   border-color: #e8e8e8;
   overflow: hidden;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 8px 8px;
 }
 
 .link_express-settings-wrap .select2-container, .link_express-settings-wrap input {
@@ -170,7 +170,7 @@
 
 .link_express-settings-wrap input {
   padding: 6px 5px;
-  border-radius: 10px !important;
+  border-radius: 8px !important;
   border: 1px solid #e8e8e8 !important;
   height: auto;
 }
@@ -310,7 +310,7 @@ body.toplevel_page_link-express-settings {
   position: relative;
   padding: 25px;
   margin: 10px 2px 0 20px;
-  border-radius: 15px;
+  border-radius: 16px;
   background: #2663bd;
   background: linear-gradient(270deg, #2b3030 6%, #2663bd 100%);
   border: 2px solid #2b3030;
@@ -364,7 +364,7 @@ p.submit {
 
 .link_express-tab-group {
   display: flex;
-  border-radius: 15px;
+  border-radius: 16px;
   overflow: hidden;
   min-height: 500px;
   padding: 15px 0 15px 15px;
@@ -409,7 +409,15 @@ p.submit {
   width: 108%;
   background: #f0f8ff;
   padding: 0 20px;
-  border-radius: 10px;
+  border-radius: 16px;
+}
+.link_express-tab-group .link_express-tab-content form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.link_express-tab-group .link_express-tab-content form p.submit {
+  margin-top: auto;
 }
 
 .toplevel_page_link-express-settings div#wpfooter {
@@ -423,6 +431,52 @@ p.submit {
 
 .nice-select .nice-select-search {
   margin: 0;
+}
+
+.auth-button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 12px;
+  white-space: nowrap;
+  color: #FFF;
+  text-decoration: none;
+  cursor: pointer;
+  background: linear-gradient(270deg, #2b3030 46%, #2663bd 100%);
+}
+.auth-button.logout {
+  padding: 10px 30px;
+  background: linear-gradient(75deg, #F44336 4%, #B71C1C 100%);
+}
+.auth-button.required-forms {
+  padding: 10px 30px;
+}
+.auth-button.required-forms:hover {
+  color: #FFF;
+}
+
+.link-express-notices .notice {
+  background: linear-gradient(75deg, #4CAF50 4%, #607D8B 100%);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 30px;
+  font-size: 12px;
+  white-space: nowrap;
+  color: #FFF;
+  cursor: pointer;
+  font-family: "Vazirmatn", serif;
+}
+.link-express-notices .notice.notice-error {
+  background: linear-gradient(75deg, #d41c0f 4%, #607d8b 100%);
+}
+.link-express-notices .notice-dismiss {
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.link-express-notices .notice-dismiss:before {
+  font: normal 24px/20px dashicons;
+  color: #FFF;
 }
 
 div#le-modal {
@@ -469,7 +523,7 @@ div#le-modal .link-headings button {
   font-size: 14px;
   position: relative;
   padding: 8px 15px;
-  border-radius: 10px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -558,7 +612,7 @@ div#le-modal .le-modal-form {
   flex-direction: column;
   opacity: 0;
   transition: all 0.2s ease-out;
-  border-radius: 15px;
+  border-radius: 16px;
   overflow: hidden;
   padding: 15px;
   background: rgb(38, 99, 189);
@@ -609,7 +663,7 @@ div#le-modal .le-modal-form .le-modal-head button {
 }
 div#le-modal .le-modal-form .le-modal-content {
   background: #f0f8ff;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 20px;
 }
 div#le-modal .le-modal-form .le-modal-content .form-content {
@@ -629,7 +683,7 @@ div#le-modal .le-modal-form .le-modal-content .form-field.sendDate, div#le-modal
   margin-bottom: 0;
 }
 div#le-modal .le-modal-form .le-modal-content .form-field span.date_field_span {
-  border-radius: 10px;
+  border-radius: 8px;
   border: 1px solid #e8e8e8;
   outline: 0;
   background: #FFF;
@@ -655,7 +709,7 @@ div#le-modal .le-modal-form .le-modal-content .form-field input,
 div#le-modal .le-modal-form .le-modal-content .form-field textarea {
   width: 100%;
   max-width: 100%;
-  border-radius: 10px;
+  border-radius: 8px;
   border: 1px solid #e8e8e8;
   padding: 8px 15px;
   outline: 0;
@@ -697,7 +751,7 @@ div#le-notice {
   padding: 15px 0 15px 20px;
   align-items: center;
   transition: all 0.3s ease;
-  border-radius: 10px;
+  border-radius: 8px;
   font-weight: 600;
   border: 1px solid;
 }
@@ -742,7 +796,7 @@ div#le-notice button svg {
   padding: 10px;
   padding-top: 0px;
   margin-bottom: 10px;
-  border-radius: 5px;
+  border-radius: 4px;
   font-size: 12px;
 }
 
@@ -809,7 +863,7 @@ button#linkexpress-remove {
   border: 1px solid #000;
   display: block;
   text-align: center;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 .link-express-actions-summary-list-data:hover > div {
@@ -831,7 +885,7 @@ div#le-modal .le-modal-form .le-modal-content .form-field.senderAddress {
 }
 
 .nice-select {
-  border-radius: 10px;
+  border-radius: 8px;
   height: auto;
   padding: 2px 15px;
 }
@@ -867,7 +921,7 @@ p.submit input#submit,
   background: #eee;
   color: #949494;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 8px 20px;
   display: block;
   max-width: 1000px;

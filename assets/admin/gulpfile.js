@@ -45,6 +45,7 @@ gulp.task('minifyScripts', function (cb) {
                 'app/js/base.js',
                 'app/js/order.js',
                 'app/js/main.js',
+                'app/js/settings.js',
             ]),
             concat('linkexpress.js'),
             gulp.dest('dist/js'),

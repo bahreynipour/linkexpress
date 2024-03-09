@@ -113,7 +113,6 @@ const link = {
                         }
 
                         linkModal.selector('select').map((key, select) => linkHelper.setNiceSelect(select))
-
                     },
                     link.headings()
                 )

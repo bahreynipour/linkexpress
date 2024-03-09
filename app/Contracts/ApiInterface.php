@@ -2,7 +2,7 @@
 
 interface ApiInterface {
 
-    public function setArgs(array $data): void;
+    public function setArgs(array $data);
 
     public function setResponseMessages(): void;
 

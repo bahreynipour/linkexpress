@@ -8,7 +8,7 @@ body.toplevel_page_link-express-settings {
   position: relative;
   padding: 25px;
   margin: 10px 2px 0 20px;
-  border-radius: 15px;
+  border-radius: 16px;
   background: #2663bd;
   background: linear-gradient(270deg, #2b3030 6%, #2663bd 100%);
   border: 2px solid #2b3030;
@@ -67,7 +67,7 @@ p.submit {
 }
 .link_express-tab-group {
   display: flex;
-  border-radius: 15px;
+  border-radius: 16px;
   overflow: hidden;
   min-height: 500px;
   padding: 15px 0 15px 15px;
@@ -120,7 +120,17 @@ p.submit {
     width: 108%;
     background: #f0f8ff;
     padding: 0 20px;
-    border-radius: 10px;
+    border-radius: 16px;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      p.submit {
+        margin-top: auto;
+      }
+    }
 
   }
 }
@@ -138,4 +148,26 @@ p.submit {
 
 .nice-select .nice-select-search {
   margin: 0;
+}
+
+.auth-button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 12px;
+  white-space: nowrap;
+  color: #FFF;
+  text-decoration: none;
+  cursor: pointer;
+  background: linear-gradient(270deg, #2b3030 46%, #2663bd 100%);
+  &.logout {
+    padding: 10px 30px;
+    background: linear-gradient(75deg, #F44336 4%, #B71C1C 100%);
+  }
+  &.required-forms {
+    padding: 10px 30px;
+    &:hover {
+      color: #FFF;
+    }
+  }
 }

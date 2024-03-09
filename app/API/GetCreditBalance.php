@@ -11,9 +11,11 @@ class GetCreditBalance extends Api
 
 	protected string $method = 'get';
 
-    protected ?array $requiredParams = [
-        'accountGuid'
-    ];
+	public function setArgs(array $data)
+	{
+		$this->endpoint .= '/' . ($data['accountGuid'] ?? '');
+		return parent::setArgs($data);
+	}
 
     public function handleResponseMessages($response)
     {
@@ -22,6 +24,32 @@ class GetCreditBalance extends Api
 
         return $response['result'];
     }
+
+
+
+	public function handleResponse($response): array
+	{
+		if(is_wp_error($response)) {
+			return ['code' => -1, 'message' => 'خطایی رخ داده است'];
+		}
+
+		$responseCode = $response['response']['code'] ?? null;
+
+		if($responseCode === 401) {
+			return ['code' => 401, 'message' => 'اطلاعات api بدرستی وارد نشده است.'];
+		}
+
+		$body = json_decode($response['body'] ?? '', true);
+		if( !is_array($body) ) {
+			$body = json_decode($body, true);
+		}
+		return [
+			'code' => $responseCode,
+			'status' => $responseCode === 200 ? 'success' : 'error',
+			'message' => '',
+			'body' => $body
+		];
+	}
 
     public function setResponseMessages(): void
     {

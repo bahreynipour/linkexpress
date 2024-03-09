@@ -1,0 +1,28 @@
+.link-express-notices {
+  .notice {
+    background: linear-gradient(75deg, #4CAF50 4%, #607D8B 100%);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 30px;
+    font-size: 12px;
+    white-space: nowrap;
+    color: #FFF;
+    cursor: pointer;
+    font-family: 'Vazirmatn', serif;
+
+    &.notice-error {
+      background:linear-gradient(75deg, #d41c0f 4%, #607d8b 100%);
+    }
+
+  }
+
+  .notice-dismiss {
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    &:before {
+      font: normal 24px / 20px dashicons;
+      color: #FFF;
+    }
+  }
+}

@@ -52,7 +52,19 @@ abstract class Api implements ApiInterface
         }
     }
 
-    public function setArgs(array $data): void
+	public function username(string $username)
+	{
+		$this->username = $username;
+		return $this;
+	}
+
+	public function password(string $password)
+	{
+		$this->password = $password;
+		return $this;
+	}
+
+    public function setArgs(array $data)
     {
         if(isset($this->requiredParams)) {
             $this->requiredParamValues = array_intersect_key($data, array_flip($this->requiredParams));
@@ -65,6 +77,8 @@ abstract class Api implements ApiInterface
         $data = wp_parse_args($optionalParamsValues ?? [], $this->requiredParamValues ?? []);
 
         $this->args = $data;
+
+		return $this;
     }
 
     public function getArgs(): array
@@ -115,27 +129,37 @@ abstract class Api implements ApiInterface
             'data_format' => 'body',
         ];
 
+		if($this->method === 'get') {
+			unset($args['body']);
+		}
+
 		$method = "wp_remote_{$this->method}";
         return $this->handleResponse( $method($this->requestUrl, $args) );
     }
 
     public function handleResponse($response): array
     {
-        if(is_wp_error($response))
-            return ['code' => -1, 'message' => 'خطایی رخ داده است'];
+        if(is_wp_error($response)) {
+	        return ['code' => -1, 'message' => 'خطایی رخ داده است'];
+        }
 
-        $body = json_decode($response['body'], true);
-        if( !is_array($body) )
+		$responseCode = $response['response']['code'] ?? null;
+
+		if($responseCode === 401) {
+			return ['code' => 401, 'message' => 'اطلاعات api بدرستی وارد نشده است.'];
+		}
+
+        $body = json_decode($response['body'] ?? '', true);
+        if( !is_array($body) ) {
 	        $body = json_decode($body, true);
+        }
 
         $this->setResponseDataObject($body);
 
         $message = $this->handleResponseMessages($body);
 
-		$response = $response['response'];
-
         return [
-			'status' => $response['code'] === 200 ? 'success' : 'error',
+			'status' => $responseCode === 200 ? 'success' : 'error',
 	        'message' => $message,
 	        'body' => $body
         ];

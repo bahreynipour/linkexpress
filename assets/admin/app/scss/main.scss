@@ -5,6 +5,7 @@
 @import "components";
 @import "cancel";
 @import "settings";
+@import "notices";
 
 div#le-modal {
   position: fixed;
@@ -53,7 +54,7 @@ div#le-modal {
       font-size: 14px;
       position: relative;
       padding: 8px 15px;
-      border-radius: 10px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -156,7 +157,7 @@ div#le-modal {
     flex-direction: column;
     opacity: 0;
     transition: all .2s ease-out;
-    border-radius: 15px;
+    border-radius: 16px;
     overflow: hidden;
     padding: 15px;
     background: rgb(38,99,189);
@@ -216,7 +217,7 @@ div#le-modal {
 
     .le-modal-content {
       background: #f0f8ff;
-      border-radius: 10px;
+      border-radius: 8px;
       padding: 20px;
 
       .form-content {
@@ -240,7 +241,7 @@ div#le-modal {
         }
 
         span.date_field_span {
-          border-radius: 10px;
+          border-radius: 8px;
           border: 1px solid #e8e8e8;
           outline: 0;
           background: #FFF;
@@ -268,7 +269,7 @@ div#le-modal {
         textarea {
           width: 100%;
           max-width: 100%;
-          border-radius: 10px;
+          border-radius: 8px;
           border: 1px solid #e8e8e8;
           padding: 8px 15px;
           outline: 0;
@@ -323,7 +324,7 @@ div#le-notice {
   padding: 15px 0 15px 20px;
   align-items: center;
   transition: all 0.3s ease;
-  border-radius: 10px;
+  border-radius: 8px;
   font-weight: 600;
   border: 1px solid;
 
@@ -378,7 +379,7 @@ div#le-notice {
   padding: 10px;
   padding-top: 0px;
   margin-bottom: 10px;
-  border-radius: 5px;
+  border-radius: 4px;
   font-size: 12px;
 }
 
@@ -449,7 +450,7 @@ button#linkexpress-remove {
   border: 1px solid #000;
   display: block;
   text-align: center;
-  border-radius: 3px;
+  border-radius: 4px;
 
 }
 
@@ -475,7 +476,7 @@ div#le-modal .le-modal-form .le-modal-content .form-field.senderAddress {
 }
 
 .nice-select {
-  border-radius: 10px;
+  border-radius: 8px;
   height: auto;
   padding: 2px 15px;
 
@@ -521,7 +522,7 @@ p.submit input#submit,
   background: #eee;
   color: #949494;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 8px 20px;
   display: block;
   max-width: 1000px;
