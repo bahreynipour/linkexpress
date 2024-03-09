@@ -36,7 +36,7 @@ class Helper
     {
         $qrCode = (new QrCode($code))
             ->setSize(200)
-            ->setMargin(20)
+            ->setMargin(0)
             ->useForegroundColor(0, 0, 0);
 
         return '<img src="' . $qrCode->writeDataUri() . '">';

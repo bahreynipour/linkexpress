@@ -59,7 +59,7 @@ $orders = array_map(
             border: 1px solid #000;
         }
 
-        table:not(.heading, .foot) td:not(.qrcode) {
+        table:not(.heading, .foot) td:not(.qrcode, .barcode) {
             padding: 10px;
         }
 
@@ -94,14 +94,18 @@ $orders = array_map(
             padding: 10px;
         }
 
-        table td.qrcode {
+        table td.qrcode,
+        table td.barcode {
             vertical-align: middle;
             text-align: center;
-            width: 2cm;
+            width: 4cm;
+            height: 4cm;
+            padding: 10px;
         }
 
-        table td.qrcode img {
-            max-width: 2cm;
+        table td.qrcode img,
+        table td.barcode img {
+            max-width: 4cm;
         }
 
         div.bottom-spacer {

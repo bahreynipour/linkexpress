@@ -25,15 +25,15 @@ use function LinkExpress\getLinkExpressCompanyAddress;
         <td>فرستنده</td>
         <td><?php echo getLinkExpressCompanyAddress(); ?></td>
 
-        <td rowspan="3" class="qrcode">
-		    <?php
-		    if ($barcode = $order->getBarcodeData()):
-			    echo '<img src="data:image/png;base64, ' . $barcode . '"';
-		    else:
-			    echo Helper::generateQrCode($order->getTrackingCode());
-		    endif;
-		    ?>
-        </td>
+		<?php if ($barcode = $order->getBarcodeData()): ?>
+            <td rowspan="3" class="barcode">
+                <img src="data:image/png;base64, <?php echo $barcode; ?>"
+            </td>
+		<?php else: ?>
+            <td rowspan="3" class="qrcode">
+				<?php echo Helper::generateQrCode($order->getTrackingCode()); ?>
+            </td>
+		<?php endif; ?>
     </tr>
     <tr>
         <td>نوع ارسال</td>

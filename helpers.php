@@ -141,7 +141,7 @@ function modalRequiredFields(): array
 			'type' => 'select',
 			'label' => 'نوع مرسوله',
 			'validation' => ['required'],
-			'options' => link_express_parcel_types()
+			'options' => parcelTypes()
 		],
 		[
 			'id' => 'sendDate',
@@ -300,7 +300,7 @@ function link_express_delivery_types()
 }
 
 
-function link_express_parcel_types()
+function parcelTypes()
 {
 	return [
 		1 => 'پاکت نامه (>500gr)',

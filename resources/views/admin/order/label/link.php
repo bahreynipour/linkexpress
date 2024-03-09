@@ -5,10 +5,11 @@
 
 use LinkExpress\Helper;
 use LinkExpress\Objects\Order;
+use function LinkExpress\parcelTypes;
 
 $sendDataArray = [$order->getSendDate(), $order->getShift()];
 
-if($order->getAmount()) {
+if ($order->getAmount()) {
 	$sendDataArray[] = 'دارای مبلغ';
 
 }
@@ -35,7 +36,15 @@ if($order->getAmount()) {
     </tr>
     <tr>
         <td>فرستنده</td>
-        <td>لینک - نامه</td>
+        <td>
+			<?php printf(
+				'لینک%s',
+				$order->getOrderLinkData('parcelType')
+					? ' - ' . parcelTypes()[$order->getOrderLinkData('parcelType')]
+					: ''
+			);
+			?>
+        </td>
     </tr>
     <tr>
         <td>تاریخ تحویل</td>

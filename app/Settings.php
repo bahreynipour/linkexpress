@@ -487,7 +487,7 @@ class Settings
 					'id' => 'parcelType',
 					'name' => 'نوع مرسوله',
 					'type' => 'select',
-					'options' => link_express_parcel_types()
+					'options' => parcelTypes()
 				],
 				'parcelValue' => [
 					'id' => 'parcelValue',

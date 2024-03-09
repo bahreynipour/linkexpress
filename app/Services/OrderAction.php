@@ -177,7 +177,7 @@ class OrderAction implements InteractsWithOrder
 		 */
 		Ajax::make('traceOrders')->do(
 			fn(Ajax $ajax) => $ajax->jsonResponse(
-				message: traceOrders::run(),
+				message: is_array(traceOrders::run()) ? 'بروزرسانی انجام شد.' : '',
 				withCatch: true
 			)
 		);
