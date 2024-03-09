@@ -2,6 +2,7 @@
 
 namespace LinkExpress\Objects;
 
+use DateTimeZone;
 use LinkExpress\Actions\TraceOrders;
 use LinkExpress\Actions\TrackOrder;
 use LinkExpress\Helper;
@@ -271,7 +272,11 @@ class Order
 	{
 		$date = $this->getOrderLinkData('sendDate');
 		return $date
-			? (wp_date('Y/m/d', strtotime($date)) ?: null)
+			? (wp_date(
+				'Y/m/d',
+				strtotime($date),
+				(new DateTimeZone('Asia/Tehran'))
+			) ?: null)
 			: null;
 	}
 

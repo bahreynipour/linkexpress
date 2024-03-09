@@ -30,7 +30,13 @@ $traces = $order->getTraceData();
 					};
 					?>
                 </div>
-				<?php echo wp_date('Y/m/d H:i', strtotime($trace['done_date'])); ?>
+				<?php
+				echo wp_date(
+					'Y/m/d H:i',
+					strtotime($trace['done_date']),
+					(new DateTimeZone('Asia/Tehran'))
+				);
+				?>
             </div>
 		<?php } ?>
     </div>
