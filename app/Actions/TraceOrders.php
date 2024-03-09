@@ -48,7 +48,7 @@ class TraceOrders
 			}
 
 			Order::make($order)
-				->updateTraceData($traceItem['trace'], !$withTrack);
+				->updateTraceData($traceItem['trace'], $withTrack);
 		}
 
 		return $traces;
