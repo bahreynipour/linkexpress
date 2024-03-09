@@ -343,7 +343,7 @@ function getPTypes(): array
 
 function getModelFieldDefaultValue(array $field, \LinkExpress\Objects\Order $order)
 {
-	if (is_null($field['default']))
+	if (!isset($field['default']))
 		return null;
 
 	return $field['default'] instanceof Closure
