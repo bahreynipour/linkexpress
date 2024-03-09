@@ -5,6 +5,7 @@ namespace LinkExpress;
 use Closure;
 use Exception;
 use LinkExpress\Objects\Order;
+use Morilog\Jalali\Jalalian;
 use WC_Order;
 use WC_Order_Item_Product;
 
@@ -273,18 +274,18 @@ function linkCities(): array
 
 function getShifts(bool $withZone = true, bool $withPeriod = true): array
 {
-    $tehran = [
-	    1 => sprintf('صبح%s', $withPeriod ? '(۸ تا ۱۴)' : ''),
-	    2 => sprintf('عصر%s', $withPeriod ? '(۱۴ تا ۲۰)' : ''),
-    ];
+	$tehran = [
+		1 => sprintf('صبح%s', $withPeriod ? '(۸ تا ۱۴)' : ''),
+		2 => sprintf('عصر%s', $withPeriod ? '(۱۴ تا ۲۰)' : ''),
+	];
 
-    $other = [
-	    3 => sprintf('صبح تا عصر%s', $withPeriod ? '(۸ تا ۲۰)' : ''),
-    ];
+	$other = [
+		3 => sprintf('صبح تا عصر%s', $withPeriod ? '(۸ تا ۲۰)' : ''),
+	];
 
-    return !$withZone
-        ? $tehran + $other
-        : ['tehran' => $tehran, 'other' => $other];
+	return !$withZone
+		? $tehran + $other
+		: ['tehran' => $tehran, 'other' => $other];
 }
 
 
@@ -586,5 +587,20 @@ function getOrderByTrackingCode($trackingCode)
 
 function getLinkExpressCompanyAddress(): string
 {
-    return 'لینک اسکپرس آدرس : تهران فرخی یزدی آجرپز پلاک ۱۱';
+	return 'لینک اسکپرس آدرس : تهران فرخی یزدی آجرپز پلاک ۱۱';
+}
+
+function linkDate($format, $date, $timezone)
+{
+	if (!class_exists('Morilog\Jalali\Jalalian')) {
+		return $date;
+	}
+
+	$format = str_replace('M', 'F', $format);
+
+	try {
+		return Jalalian::fromDateTime(strtotime($date), $timezone)->format($format);
+	} catch (Exception $e) {
+		return $date;
+	}
 }

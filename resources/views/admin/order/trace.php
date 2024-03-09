@@ -7,6 +7,7 @@ use function LinkExpress\getPaymentMethodName;
 use function LinkExpress\getStateName;
 use function LinkExpress\getTrackingAmount;
 use function LinkExpress\getTrackingArrayInfo;
+use function LinkExpress\linkDate;
 
 /**
  * @var OrderTrack $request
@@ -31,9 +32,9 @@ $traces = $order->getTraceData();
 					?>
                 </div>
 				<?php
-				echo wp_date(
+				echo linkDate(
 					'Y/m/d H:i',
-					strtotime($trace['done_date']),
+					$trace['done_date'],
 					(new DateTimeZone('Asia/Tehran'))
 				);
 				?>

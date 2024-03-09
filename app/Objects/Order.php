@@ -11,6 +11,7 @@ use WC_Order;
 use function LinkExpress\getRialAmount;
 use function LinkExpress\getShifts;
 use function LinkExpress\getStateName;
+use function LinkExpress\linkDate;
 
 class Order
 {
@@ -272,9 +273,9 @@ class Order
 	{
 		$date = $this->getOrderLinkData('sendDate');
 		return $date
-			? (wp_date(
+			? (linkDate(
 				'Y/m/d',
-				strtotime($date),
+				$date,
 				(new DateTimeZone('Asia/Tehran'))
 			) ?: null)
 			: null;
